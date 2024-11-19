@@ -1,0 +1,139 @@
+task_1:
+def create_car(brand, color, max_speed):
+    return f"Марка: {brand} Цвет: {color} Максимальная скорость: {max_speed} км/ч"
+car_info = create_car("Toyota", "Красный", 180)
+print(car_info)
+
+task_2:
+def switch_check(switch):
+    if switch is True:
+        print("True работает")
+    elif switch is False:
+        print("False не работает")
+    else:
+        print(f"{switch} сломан.")
+
+# Создание переменных
+switch_1 = True
+switch_2 = False
+switch_3 = None
+
+# Проверка состояния переключателей
+switch_check(switch_1)  # True работает
+switch_check(switch_2)  # False не работает
+switch_check(switch_3)  # None сломан.
+
+task_3:
+def triangle_info(a, b, c):
+    # Проверка на возможность построения треугольника
+    if a + b > c and a + c > b and b + c > a:
+        # Периметр
+        p = a + b + c
+        # Полупериметр
+        s = p / 2
+        # Площадь по формуле Герона
+        area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+        
+        # Вывод типа треугольника
+        if a == b == c:
+            print("Равносторонний треугольник")
+        elif a == b or a == c or b == c:
+            print("Равнобедренный треугольник")
+        else:
+            print("Разносторонний треугольник")
+        
+        # Вывод периметра и площади с двумя знаками после запятой
+        print(f"Периметр: {p}")
+        print(f"Площадь: {area:.2f}")
+    else:
+        print("Некорректные стороны. Невозможно построить треугольник.")
+
+# Пример вызова функции:
+triangle_info(3, 3, 3)  # Равносторонний треугольник
+tri
+angle_info(3, 4, 5)  # Разносторонний треугольник
+triangle_info(1, 2, 3)  # Некорректные стороны. Невозможно построить треугольник.
+
+task_4:
+def number_change(input_number, output_number):
+    steps = 0  # Счётчик шагов
+    
+    # Цикл, пока input_number не станет равным output_number
+    while input_number != output_number:
+        if input_number < output_number:
+            input_number += 1  # Увеличиваем на 1
+        elif input_number > output_number:
+            input_number -= 1  # Уменьшаем на 1
+        steps += 1  # Увеличиваем счётчик шагов
+    
+    # Возвращаем кортеж из шагов, финального значения input_number и output_number
+    return (steps, input_number, output_number)
+
+# Пример вызова функции:
+result = number_change(3, 8)
+print(result)  # Вывод: (5, 8, 8)
+
+task_5:
+# Глобальная переменная
+player = 0
+
+# Функция для отображения информации о пробеге игрока
+def info_player():
+    print(f"Игрок пробежал {player} км.")
+
+# Функция для обновления пробега игрока
+def run_player(km):
+    global player  # Указываем, что будем изменять глобальную переменную player
+    player += km / 2  # Добавляем половину пробега к глобальной переменной
+
+# Проверка работы программы
+info_player()  # Вывод начального значения пробега
+run_player(30)  # Игрок пробежал 30 км, добавляем половину (15 км)
+run_player(12.5)  # Игрок пробежал 12.5 км, добавляем половину (6.25 км)
+info_player()  # Вывод итогового значения пробега
+
+task_6:
+def number_properties(number: int) -> str:
+    """
+    Определяет, является ли число чётным или нечётным, а также вычисляет его квадрат.
+
+    Функция выполняет следующие действия:
+    - Проверяет, чётное ли число.
+    - Вычисляет квадрат числа.
+
+    Параметры:
+    number (int): Целое число, для которого нужно определить чётность и вычислить квадрат.
+
+    Возвращает:
+    str: Строку с информацией о числе:
+        - Является ли оно чётным или нечётным.
+        - Квадрат числа.
+
+    Исключения:
+    - Если число не является целым (например, дробное или строка), выбрасывается ошибка ValueError.
+
+    Пример:
+    >> number_properties(4)
+    Число: 4
+    Чётное: True
+    Квадрат числа: 16
+
+    >> number_properties(5)
+    Число: 5
+    Чётное: False
+    Квадрат числа: 25
+    """
+
+    # Проверка на чётность
+    is_even = number % 2 == 0
+
+    # Вычисление квадрата числа
+    square = number ** 2
+
+    # Формирование строки с результатами
+    return f"Число: {number}\nЧётное: {is_even}\nКвадрат числа: {square}"
+
+# Пример использования:
+print(number_properties.__doc__)  # Документация функции
+print(number_properties(4))  # Число 4
+print(number_properties(5))  # Число 5
