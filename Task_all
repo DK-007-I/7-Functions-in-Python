@@ -13,7 +13,7 @@ def switch_check(switch):
     else:
         print(f"{switch} сломан.")
 
-# Создание переменных
+#  переменных
 switch_1 = True
 switch_2 = False
 switch_3 = None
